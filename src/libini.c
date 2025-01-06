@@ -237,7 +237,8 @@ static const luaL_Reg libiniLib[] = {
     {"GetColor", lualibini_get_color},
     {"SetColor", lualibini_set_color},
     {"GetShortcut", lualibini_get_shortcut},
-    {"DeleteSection", lualibini_del_section}};
+    {"DeleteSection", lualibini_del_section},
+    {NULL, NULL}};
 
 LUALIB_API int luaopen_libini(lua_State *L)
 {
