@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "kolibri_libini.h": "c",
+        "lua.hpp": "cpp",
+        "ksys.h": "c"
+    },
+    "editor.insertSpaces": false
+}
