@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: egor00f/install-kolibrios-toolchain-action@v1.1
+
+    - name: kolibros repo
+      run: cd .. && git clone https://github.com/KolibriOS/kolibrios.git
+
+    - name: clone lua
+      run: cd .. && git clone https://github.com/egor00f/lua-kolibrios.git
+
+    - name: build lua
+      run: cd ../lua-kolibrios/src && make lua54.dll
+     
+    - name: Build
+      run: make build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: src/libini.dll
