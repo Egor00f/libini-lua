@@ -24,6 +24,35 @@
             "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "/home/autobuild/tools/win32/bin/kos32-gcc"
+        },
+        {
+            "name": "Win32 Debug",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/../kolibrios/contrib/sdk/sources/newlib/libc/include",
+                "${workspaceFolder}/../lua-kolibrios/src"
+            ],
+            "defines": [
+                "NDEBUG"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/MinGW/msys/1.0/home/autobuild/tools/win32/bin/kos32-gcc.exe",
+            "intelliSenseMode": "gcc-x86"
+        },
+        {
+            "name": "Linux Debug",
+            "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/../kolibrios/contrib/sdk/sources/newlib/libc/include",
+                "${workspaceFolder}/../lua-kolibrios/src"
+            ],
+            "defines": [
+                "NDEBUG"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/home/autobuild/tools/win32/bin/kos32-gcc"
         }
     ],
     "version": 4

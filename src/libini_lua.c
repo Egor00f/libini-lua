@@ -107,8 +107,8 @@ static int lualibini_get_str(lua_State *L)
 
 static int lualibini_set_str(lua_State *L)
 {
-    char *buffer = luaL_checkstring(L, 4);
-    if (LIBINI_get_str(
+    const char *buffer = luaL_checkstring(L, 4);
+    if (LIBINI_set_str(
             luaL_checkstring(L, 1),
             luaL_checkstring(L, 2),
             luaL_checkstring(L, 3),
@@ -195,7 +195,7 @@ static int lualibini_get_shortcut(lua_State *L)
             luaL_checkstring(L, 2),
             luaL_checkstring(L, 3),
             0,
-            &mod) == 0)
+            &mod) != 0)
     {
         lua_pushinteger(L, mod);
 
@@ -218,7 +218,7 @@ static int lualibini_get_shortcut(lua_State *L)
 
     return 1;
 }
-/*
+
 static int lualibini_del_section(lua_State *L)
 {
     lua_pushinteger(
@@ -228,15 +228,17 @@ static int lualibini_del_section(lua_State *L)
             luaL_checkstring(L, 2)));
 
     return 1;
-}*/
+}
 
-static void lualibini_libini(lua_State *L)
+static int lualibini_close(lua_State *L)
 {
 #ifdef NDEBUG
     _ksys_debug_puts("libini close\n");
 #endif
 
     kolibri_libini_close();
+
+    return 0;
 }
 
 static const luaL_Reg libiniLib[] = {
@@ -249,8 +251,8 @@ static const luaL_Reg libiniLib[] = {
     {"GetColor", lualibini_get_color},
     {"SetColor", lualibini_set_color},
     {"GetShortcut", lualibini_get_shortcut},
-    /*{"DeleteSection", lualibini_del_section},*/
-    {"__gc", lualibini_libini},
+    {"DeleteSection", lualibini_del_section},
+    //{"__gc", lualibini_close},
     {NULL, NULL}};
 
 LUALIB_API int luaopen_libini(lua_State *L)

@@ -20,19 +20,19 @@ int kolibri_libini_init(void)
 		LIBINI_get_shortcut = _ksys_dlsym(libini, "ini_get_shortcut");
 		LIBINI_del_section = _ksys_dlsym(libini, "ini_del_section");
 
-		if (LIBINI_enum_sections != NULL ||
-			LIBINI_enum_keys != NULL ||
-			LIBINI_get_str != NULL ||
-			LIBINI_set_str != NULL ||
-			LIBINI_get_color != NULL ||
-			LIBINI_set_color != NULL ||
-			LIBINI_set_int != NULL ||
-			LIBINI_get_int != NULL ||
-			LIBINI_get_shortcut != NULL ||
+		if (LIBINI_enum_sections != NULL &&
+			LIBINI_enum_keys != NULL &&
+			LIBINI_get_str != NULL &&
+			LIBINI_set_str != NULL &&
+			LIBINI_get_color != NULL &&
+			LIBINI_set_color != NULL &&
+			LIBINI_set_int != NULL &&
+			LIBINI_get_int != NULL &&
+			LIBINI_get_shortcut != NULL &&
 			LIBINI_del_section != NULL) // if all functions found
 		{
 #ifdef NDEBUG
-			_ksys_debug_puts("libini loaded successfully!\n");
+			_ksys_debug_puts("successfully!\n");
 #endif
 			return 0; // OK
 		}

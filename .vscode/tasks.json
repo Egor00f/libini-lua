@@ -21,12 +21,30 @@
         {
             "type": "shell",
             "label": "Build",
-            "command": "-C ${workspaceFolder} Build",
+            "command": "-C ${workspaceFolder}  build",
             "group": {
                 "kind": "build",
                 "isDefault": false
             },
             "detail": "Build this lib",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "shell": {
+                    "executable": "make",
+                }
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Debug Build",
+            "command": "-C ${workspaceFolder} \"MYCFLAGS=-DNDEBUG\" build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Debug build this lib",
             "problemMatcher": [
                 "$gcc"
             ],
