@@ -16,7 +16,7 @@ jobs:
     
     - uses: egor00f/install-kolibrios-toolchain-action@v1.1
 
-    - name: kolibros repo
+    - name: kolibrios repo
       run: cd .. && git clone https://github.com/KolibriOS/kolibrios.git
 
     - name: lua repo
@@ -30,4 +30,3 @@ jobs:
       with:
           name: libini-build
           path: ./src/libini.dll
-    
