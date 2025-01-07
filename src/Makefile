@@ -35,14 +35,14 @@ OBJECTS=libini.o loadlibini.obj
 default: libini.dll
 
 
-libini.dll: $(OBJECTS)
+libini.dll: $(OBJECTS) (LUA_DIR)/src/lua54.dll
 	$(CC) -shared -T dll.lds --entry _DllStartup -o $@ $(OBJECTS) $(LUA_DIR)/src/lua54.dll $(LIBS)
 
 
-lua54.dll:
+(LUA_DIR)/src/lua54.dll:
 	$(MAKE) -C $(LUA_DIR)/src lua54.dll 
 
-libini.o: libini.c
+libini.o: libini.c libini.h
 
 loadlibini.obj: loadlibini.asm
 
