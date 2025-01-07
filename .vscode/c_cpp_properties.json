@@ -8,7 +8,7 @@
                 "${workspaceFolder}/../lua-kolibrios/src"
             ],
             "defines": [],
-            "cStandard": "gnu11",
+            "cStandard": "c11",
             "cppStandard": "c++11",
             "compilerPath": "C:/MinGW/msys/1.0/home/autobuild/tools/win32/bin/kos32-gcc.exe",
             "intelliSenseMode": "gcc-x86"
